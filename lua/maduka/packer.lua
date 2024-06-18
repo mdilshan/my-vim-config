@@ -59,5 +59,9 @@ return require('packer').startup(function(use)
           {'rafamadriz/friendly-snippets'},}
       }
   use 'github/copilot.vim'
-
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+  use 'tpope/vim-commentary'
   end)
