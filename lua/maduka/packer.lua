@@ -64,4 +64,28 @@ return require('packer').startup(function(use)
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
   use 'tpope/vim-commentary'
+  -- https://github.com/nvim-treesitter/nvim-treesitter-context
+  use 'romgrk/nvim-treesitter-context'
+
+  use 'stevearc/dressing.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'MunifTanjim/nui.nvim'
+
+  -- Optional dependencies
+  use 'hrsh7th/nvim-cmp'
+  use 'nvim-tree/nvim-web-devicons' -- or use 'echasnovski/mini.icons'
+  use 'HakonHarnes/img-clip.nvim'
+  -- use 'zbirenbaum/copilot.lua'
+
+  -- Main plugin: avante.nvim
+  use {
+      'yetone/avante.nvim',
+      branch = 'main',
+      run = 'make', -- Build from source
+      config = function()
+          require('avante_lib').load()
+          require('avante').setup()
+      end
+  }
+
   end)

@@ -1,5 +1,20 @@
 local lsp_zero = require('lsp-zero')
 
+vim.keymap.set('i', '<Left>', '<Nop>')
+vim.keymap.set('i', '<Right>', '<Nop>')
+vim.keymap.set('i', '<Up>', '<Nop>')
+vim.keymap.set('i', '<Down>', '<Nop>')
+
+vim.keymap.set('n', '<Left>', '<Nop>')
+vim.keymap.set('n', '<Right>', '<Nop>')
+vim.keymap.set('n', '<Up>', '<Nop>')
+vim.keymap.set('n', '<Down>', '<Nop>')
+
+vim.keymap.set('v', '<Left>', '<Nop>')
+vim.keymap.set('v', '<Right>', '<Nop>')
+vim.keymap.set('v', '<Up>', '<Nop>')
+vim.keymap.set('v', '<Down>', '<Nop>')
+
 lsp_zero.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
@@ -13,11 +28,12 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
 end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'rust_analyzer', 'cypher_ls'},
+  ensure_installed = {'ts_ls', 'rust_analyzer', 'cypher_ls'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()

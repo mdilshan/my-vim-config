@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.api.nvim_set_keymap("n", "<leader>pv", ":lua vim.cmd[[Ex]]<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>q", ":lua vim.cmd[[Ex]]<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
