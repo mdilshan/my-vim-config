@@ -7,6 +7,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  use "nvim-lua/plenary.nvim" -- don't forget to add this one if you don't have it yet!
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.4',
 	  -- or                            , branch = '0.1.x',
@@ -29,7 +30,6 @@ return require('packer').startup(function(use)
   }
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use "nvim-lua/plenary.nvim" -- don't forget to add this one if you don't have it yet!
   use {
 	  "ThePrimeagen/harpoon",
 	  branch = "harpoon2",
@@ -68,7 +68,6 @@ return require('packer').startup(function(use)
   use 'romgrk/nvim-treesitter-context'
 
   use 'stevearc/dressing.nvim'
-  use 'nvim-lua/plenary.nvim'
   use 'MunifTanjim/nui.nvim'
 
   -- Optional dependencies
@@ -83,8 +82,25 @@ return require('packer').startup(function(use)
       branch = 'main',
       run = 'make', -- Build from source
       config = function()
-          require('avante_lib').load()
-          require('avante').setup()
+          require('avante').setup({
+              provider = "openai",
+              cursor_applying_provider = "groq",
+              openai = {
+                  model = "gpt-4o-mini",
+              },
+              behaviour = {
+                  enable_cursor_planning_mode = true
+              },
+              vendors = {
+                  groq = {
+                      __inherited_from = 'openai',
+                      api_key_name = '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',
+                      endpoint = 'https://api.groq.com/openai/v1/',
+                      model = 'llama-3.3-70b-versatile',
+                      max_completion_tokens = 32768, -- remember to increase this value, otherwise it will stop generating halfway
+                  },
+              },
+          })
       end
   }
 
