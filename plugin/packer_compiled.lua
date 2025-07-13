@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/mdils/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?.lua;/home/mdils/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?/init.lua;/home/mdils/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?.lua;/home/mdils/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/mdils/.cache/nvim/packer_hererocks/2.1.1713484068/lib/lua/5.1/?.so"
+local package_path_str = "/home/mdils/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?.lua;/home/mdils/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?/init.lua;/home/mdils/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?.lua;/home/mdils/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/mdils/.cache/nvim/packer_hererocks/2.1.1741730670/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -78,12 +78,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mdils/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
-  },
-  ["avante.nvim"] = {
-    config = { "\27LJ\2\n§\3\0\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\tgroq\1\0\5\17api_key_name=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\26max_completion_tokens\3€€\2\rendpoint$https://api.groq.com/openai/v1/\21__inherited_from\vopenai\nmodel\28llama-3.3-70b-versatile\14behaviour\1\0\1 enable_cursor_planning_mode\2\vopenai\1\0\1\nmodel\16gpt-4o-mini\1\0\5\vopenai\0\rprovider\vopenai\29cursor_applying_provider\tgroq\tgroq\0\14behaviour\0\nsetup\vavante\frequire\0" },
-    loaded = true,
-    path = "/home/mdils/.local/share/nvim/site/pack/packer/start/avante.nvim",
-    url = "https://github.com/yetone/avante.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -229,10 +223,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: avante.nvim
-time([[Config for avante.nvim]], true)
-try_loadstring("\27LJ\2\n§\3\0\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\tgroq\1\0\5\17api_key_name=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\26max_completion_tokens\3€€\2\rendpoint$https://api.groq.com/openai/v1/\21__inherited_from\vopenai\nmodel\28llama-3.3-70b-versatile\14behaviour\1\0\1 enable_cursor_planning_mode\2\vopenai\1\0\1\nmodel\16gpt-4o-mini\1\0\5\vopenai\0\rprovider\vopenai\29cursor_applying_provider\tgroq\tgroq\0\14behaviour\0\nsetup\vavante\frequire\0", "config", "avante.nvim")
-time([[Config for avante.nvim]], false)
 -- Config for: rose-pine
 time([[Config for rose-pine]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")

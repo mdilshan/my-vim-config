@@ -75,33 +75,4 @@ return require('packer').startup(function(use)
   use 'nvim-tree/nvim-web-devicons' -- or use 'echasnovski/mini.icons'
   use 'HakonHarnes/img-clip.nvim'
   -- use 'zbirenbaum/copilot.lua'
-
-  -- Main plugin: avante.nvim
-  use {
-      'yetone/avante.nvim',
-      branch = 'main',
-      run = 'make', -- Build from source
-      config = function()
-          require('avante').setup({
-              provider = "openai",
-              cursor_applying_provider = "groq",
-              openai = {
-                  model = "gpt-4o-mini",
-              },
-              behaviour = {
-                  enable_cursor_planning_mode = true
-              },
-              vendors = {
-                  groq = {
-                      __inherited_from = 'openai',
-                      api_key_name = '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',
-                      endpoint = 'https://api.groq.com/openai/v1/',
-                      model = 'llama-3.3-70b-versatile',
-                      max_completion_tokens = 32768, -- remember to increase this value, otherwise it will stop generating halfway
-                  },
-              },
-          })
-      end
-  }
-
   end)
