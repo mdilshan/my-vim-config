@@ -1,36 +1,45 @@
 return {
     {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        branch = "master",
+        lazy = false,
         config = function()
-            require('nvim-treesitter.configs').setup {
-                ensure_installed = { "javascript", "typescript", "c", "rust", "lua", "vim", "vimdoc", "query" },
+            -- Ensure parsers install to a persistent path
+            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+            for _, config in pairs(parser_config) do
+                config.install_info.install_dir = vim.fn.stdpath("data") .. "/site"
+            end
+
+            require("nvim-treesitter.configs").setup({
+                -- ensure_installed = {
+                --     "javascript", "typescript", "c", "rust", "lua", "vim", "vimdoc", "query"
+                -- },
                 sync_install = false,
                 auto_install = true,
                 highlight = {
                     enable = true,
                     additional_vim_regex_highlighting = false,
                 },
-            }
-        end
+            })
+        end,
     },
     {
-        'romgrk/nvim-treesitter-context',
+        "romgrk/nvim-treesitter-context",
         config = function()
-            require 'treesitter-context'.setup {
+            require("treesitter-context").setup({
                 enable = true,
                 multiwindow = false,
                 max_lines = 0,
                 min_window_height = 0,
                 line_numbers = true,
                 multiline_threshold = 20,
-                trim_scope = 'outer',
-                mode = 'cursor',
+                trim_scope = "outer",
+                mode = "cursor",
                 separator = nil,
                 zindex = 20,
                 on_attach = nil,
-            }
-        end
+            })
+        end,
     },
 }
-

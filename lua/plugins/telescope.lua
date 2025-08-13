@@ -6,7 +6,11 @@ return {
         config = function()
             require('telescope').setup {
                 defaults = {
-                    file_ignore_patterns = { "node_modules", ".git" },
+                    file_ignore_patterns = {
+                        "node_modules",
+                        ".git",
+                        [[%d+_snapshot%.json$]],
+                    },
                 }
             }
 
@@ -16,7 +20,14 @@ return {
             vim.keymap.set('n', '<leader>ps', function()
                 builtin.grep_string({ search = vim.fn.input("Grep > ") });
             end)
+
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "TelescopePreviewerLoaded",
+                callback = function(args)
+                    vim.wo.number = true
+                    vim.wo.relativenumber = false
+                end,
+            })
         end
     },
 }
-
