@@ -11,6 +11,17 @@ return {
                 config.install_info.install_dir = vim.fn.stdpath("data") .. "/site"
             end
 
+            -- Make Neovim recognize `.handlebars` extension
+            vim.filetype.add({
+                extension = {
+                    handlebars = "handlebars",
+                },
+            })
+
+            local parsers = require("nvim-treesitter.parsers")
+            -- Tell Treesitter: use the HTML parser for Handlebars
+            parsers.get_parser_configs().html.used_by = { "handlebars" }
+
             require("nvim-treesitter.configs").setup({
                 -- ensure_installed = {
                 --     "javascript", "typescript", "c", "rust", "lua", "vim", "vimdoc", "query"

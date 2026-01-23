@@ -12,6 +12,7 @@ return {
                             workspaces = {
                                 notes = "~/notes",
                                 buzzme = "~/projects/buzzme/notes",
+                                liteware_fasting = "~/projects/personal/fasting/backend/notes",
                             },
                         },
                     }
